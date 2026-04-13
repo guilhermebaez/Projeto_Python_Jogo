@@ -37,6 +37,9 @@ RA: 26002725
 	|-Acertos: (Quantas palavras o jogador acertou)
 	
 	|-Input: (Aqui é onde o player escreve a letra)
+
+<img width="799" height="630" alt="image" src="https://github.com/user-attachments/assets/7c0f7f2b-1a3c-41a9-a946-7aff6e37b9dc" />
+
 	
 -Após o envio da letra, o sistema deve validar o carácter e atualizar o estado do jogo: Verifica se a letra pertence a palavra, atualiza a exibição da palavra, registra a letra como utilizada (não poderá mais ser usada), incrementa o número de tentativas.
 
