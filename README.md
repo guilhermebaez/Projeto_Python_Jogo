@@ -119,16 +119,21 @@
 -Problemas que o jogo resolve:
 
 -Auxilia no aprendizado de geografia (países e cidades).
+
 -Estimula o raciocínio lógico e a memória.
+
 -Pode ser utilizado como ferramenta educacional em pré-escolas.
 
 -Aplicações:
 
 -Uso educacional
+
 -Uso recreativo
+
 -Treinamento cognitivo
 
 -Inovação:
 
 -O uso de interface gráfica com ASCII torna o jogo visualmente diferenciado.
+
 -O sistema pode ser expandido com novos temas e modos de jogo.
