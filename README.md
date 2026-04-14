@@ -1,4 +1,7 @@
-Jogo de Descobrir Palavras
+
+<img width="263" height="160" alt="image" src="https://github.com/user-attachments/assets/4c00308c-bb7a-4c79-a455-419c4a1c706f" />															
+
+Jogo de Descobrir Palavras	
 
 Nome: Guilherme Baez Machado
 
@@ -32,14 +35,13 @@ RA: 26002725
 	
 	|-Letras Usadas: (Letras escolhidas pelo player)
 	
-	|-Tentativas (Quantas vezes o jogador deu input)
+	|-Tentativas (O player receberá um número de tentativas variável, dependendo da palavra que o sistema selecionar --> Sistema de dificuldade)
 	
 	|-Acertos: (Quantas palavras o jogador acertou)
 	
 	|-Input: (Aqui é onde o player escreve a letra)
 
 <img width="799" height="630" alt="image" src="https://github.com/user-attachments/assets/7c0f7f2b-1a3c-41a9-a946-7aff6e37b9dc" />
-
 	
 -Após o envio da letra, o sistema deve validar o carácter e atualizar o estado do jogo: Verifica se a letra pertence a palavra, atualiza a exibição da palavra, registra a letra como utilizada (não poderá mais ser usada), incrementa o número de tentativas.
 
@@ -49,17 +51,32 @@ RA: 26002725
 
 |-Mensagem de acerto;
 
+|-Quantos pontos o player ganhou;
+
 |-Quer continuar?; 
 
 (Sim: Reinicia com uma nova palavra)
 
 (Não: Fecha o sistema e gera um arquivo TXT)
 
+-Caso o player não acerte a palavra, um HUD de derrota irá aparecer, avisando o jogador que ele perdeu e perguntar se quer jogar novamente ou não.
+
+-O jogo terá um sistema de pontos baseado na quantidade de palavras que o player acertou, guardando o high-score de cada um que jogar o jogo, salvando no arquivo TXT de nomes dos jogadores;
+
 3 - Arquivos
 
--Arquivo 1 - Contém todas as palavras e suas dicas
+-Arquivo 1:
 
--Arquivo 2 - Atualizado após o fim do jogo, contém o nome do jogador, a data que jogou, sua pontuação e quantidade de tentativas
+	Contém todas as palavras e suas respectivas dicas.
+
+-Arquivo 2:
+
+	Atualizado ao final de cada partida, contendo:
+	- Nome do jogador
+	- Data da partida
+	- Pontuação final
+	- Número de tentativas
+	- Palavra secreta
 	
 4 - Controle do projeto
 
@@ -91,3 +108,25 @@ RA: 26002725
 
 -O sistema deverá evitar falhas durante a execução, garantindo que entradas inesperadas não interrompam o funcionamento do jogo.
 
+7 - Visão Empreendedora
+
+-Público-Alvo:
+
+-O jogo é voltado para estudantes e jogadores casuais que desejam aprender e se divertir.
+
+-Problemas que o jogo resolve:
+
+-Auxilia no aprendizado de geografia (países e cidades).
+-Estimula o raciocínio lógico e a memória.
+-Pode ser utilizado como ferramenta educacional em pré-escolas.
+
+-Aplicações:
+
+-Uso educacional
+-Uso recreativo
+-Treinamento cognitivo
+
+-Inovação:
+
+-O uso de interface gráfica com ASCII torna o jogo visualmente diferenciado.
+-O sistema pode ser expandido com novos temas e modos de jogo.
