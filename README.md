@@ -1,13 +1,14 @@
 
 <img width="263" height="160" alt="image" src="https://github.com/user-attachments/assets/4c00308c-bb7a-4c79-a455-419c4a1c706f" />															
 
-Jogo de Descobrir Palavras	
+**Jogo de Descobrir Palavra**
 
-Nome: Guilherme Baez Machado
+**Nome:** Guilherme Baez Machado
 
-RA: 26002725
+**RA:** 26002725
 
-1 - Projeto
+**1 - Projeto**
+
 -Consiste em um jogo de adivinhação de palavras
 
 -O Sistema sorteia uma palavra em uma lista é definida
@@ -16,7 +17,8 @@ RA: 26002725
 
 -O input do jogador será apenas letras
 
-2 - Funcionamento
+**2 - Funcionamento**
+
 -Tela própria do aplicativo (sem usar terminal) usando Tkinter
 
 -A tela deve ser estilizada e agradável visualmente
@@ -63,13 +65,13 @@ RA: 26002725
 
 -O jogo terá um sistema de pontos baseado na quantidade de palavras que o player acertou, guardando o high-score de cada um que jogar o jogo, salvando no arquivo TXT de nomes dos jogadores;
 
-3 - Arquivos
+**3 - Arquivos**
 
--Arquivo 1:
+**-Arquivo 1:**
 
 	Contém todas as palavras e suas respectivas dicas.
 
--Arquivo 2:
+**-Arquivo 2:**
 
 	Atualizado ao final de cada partida, contendo:
 	- Nome do jogador
@@ -78,7 +80,7 @@ RA: 26002725
 	- Número de tentativas
 	- Palavra secreta
 	
-4 - Controle do projeto
+**4 - Controle do projeto**
 
 -O projeto será feito em Python, utilizando o VSCode;
 
@@ -86,7 +88,7 @@ RA: 26002725
 
 -O código será comentado, explicando seu funcionamento;
 
-5 - Estrutura de dados
+**5 - Estrutura de dados**
 
 -Dicionário (dict): Irá armazenar as palavras e suas respectivas dicas
 
@@ -94,7 +96,7 @@ RA: 26002725
 
 -String (str): Representará a palavra sorteada para exibir a palavra aos poucos (conforme as letras sejam acertadas)
 
-6 - Tratamento de Erro
+**6 - Tratamento de Erro**
 
 -O sistema deverá validar todas as entradas do usuário antes de processá-las.
 
@@ -108,7 +110,7 @@ RA: 26002725
 
 -O sistema deverá evitar falhas durante a execução, garantindo que entradas inesperadas não interrompam o funcionamento do jogo.
 
-7 - Visão Empreendedora
+**7 - Visão Empreendedora**
 
 -Público-Alvo:
 
