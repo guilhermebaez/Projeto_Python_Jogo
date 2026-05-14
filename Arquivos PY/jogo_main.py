@@ -95,6 +95,50 @@ entrada = tk.Entry(janela, font = ("Arial", 14), width = 3, justify = "center")
 entrada.pack(anchor = "center", padx = 20, pady = 5)
 
 #Função para criar uma nova palavra após vencer a rodada
+def nova_rodada():
+    #transformando variáveis em globais
+    global palavra_secreta
+    global dica_texto
+    global palavra_oculta
+    global letras_usadas
+    global tentativas_restantes
+
+    #escolhendo uma palavra nova
+    palavra_secreta, dica_texto = JL.escolher_palavra()
+
+    #Reseta a lista de letras usadas
+    letras_usadas = []
+
+    #Reseta a lista que guarda a palavra secreta
+    palavra_oculta = []
+
+    #Voltando os "_" no lugar das letras
+    for letra in palavra_secreta:
+        palavra_oculta.append("_")
+
+    #Reseta as tentativas
+    tentativas_restantes = 6
+
+    # Atualiza tela
+    palavra.config(
+        text = f"Palavra: {' '.join(palavra_oculta)}"
+    )
+
+    dica.config(
+        text = f"Dica: {dica_texto}"
+    )
+
+    letras.config(
+        text = f"Letras Usadas: "
+    )
+
+    tentativas.config(
+        text = f"Tentativas: {tentativas_restantes}"
+    )
+
+
+    #Limpa mensagem anterior - Dava erro mostrando sempre "Você acertou"
+    status.config(text = "")
 
 #Função para verificar a letra colocada pelo usuário
 def verificar_letra():
@@ -138,13 +182,25 @@ def verificar_letra():
 
         acertos.config(text = f"Acertos: {quantidade_acertos}")
 
-        print("Vitória")
+        status.config(text = "Você acertou!")
+
+        janela.after(2000, nova_rodada)
 
     # Derrota
     if tentativas_restantes <= 0:
 
         print("Derrota")
 
+# Label de status do jogo
+status = tk.Label(
+    janela,
+    text = "",
+    font = ("Courier", 12),
+    bg = "royalblue3",
+    fg = "yellow"
+)
+
+status.pack(pady = 10)
 
 #Criando um botão por usuário enviar a letra
 botao = tk.Button(
