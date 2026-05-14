@@ -1,0 +1,4 @@
+BRASIL;Maior país da América do Sul
+TOKYO;Capital do Japão
+PARIS;Cidade da Torre Eiffel
+LONDRES;Capital da Inglaterra
