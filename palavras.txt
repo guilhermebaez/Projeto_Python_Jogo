@@ -1,4 +1,82 @@
 BRASIL;Maior país da América do Sul
+ARGENTINA;País conhecido pelo tango
+CHILE;País muito comprido da América do Sul
+PERU;País onde fica Machu Picchu
+CANADA;Segundo maior país do mundo
+MEXICO;País famoso pelos tacos
+ESTADOSUNIDOS;País da Estátua da Liberdade
 TOKYO;Capital do Japão
+OSAKA;Grande cidade japonesa
+KYOTO;Cidade japonesa com templos antigos
 PARIS;Cidade da Torre Eiffel
 LONDRES;Capital da Inglaterra
+ROMA;Cidade do Coliseu
+MADRID;Capital da Espanha
+BARCELONA;Cidade da Sagrada Família
+LISBOA;Capital de Portugal
+BERLIM;Capital da Alemanha
+MOSCOU;Capital da Rússia
+PEQUIM;Capital da China
+SEUL;Capital da Coreia do Sul
+BANGKOK;Capital da Tailândia
+SIDNEY;Cidade famosa pela Opera House
+MELBOURNE;Cidade importante da Austrália
+CAIRO;Cidade das pirâmides
+DUBAI;Cidade dos prédios gigantes
+ISTAMBUL;Cidade entre Europa e Ásia
+ATENAS;Berço da filosofia
+VENEZA;Cidade dos canais
+AMSTERDAM;Cidade das bicicletas
+PRAGA;Capital da República Tcheca
+VIENA;Capital da Áustria
+BUDAPESTE;Capital da Hungria
+DUBLIN;Capital da Irlanda
+OSLO;Capital da Noruega
+ESTOCOLMO;Capital da Suécia
+HELSINQUE;Capital da Finlândia
+COPENHAGUE;Capital da Dinamarca
+REYKJAVIK;Capital da Islândia
+ZURIQUE;Cidade famosa da Suíça
+GENEBRA;Cidade suíça importante
+MUMBAI;Grande cidade da Índia
+DELHI;Capital da Índia
+SINGAPURA;Cidade-estado asiática
+HONGKONG;Região famosa pelos prédios
+XANGAI;Grande cidade chinesa
+MIAMI;Cidade famosa pelas praias
+LASVEGAS;Cidade dos cassinos
+ORLANDO;Cidade da Disney
+LOSANGELES;Cidade de Hollywood
+NOVAIORQUE;Cidade da Times Square
+CHICAGO;Cidade conhecida pelos ventos
+WASHINGTON;Capital dos Estados Unidos
+TORONTO;Grande cidade canadense
+VANCOUVER;Cidade canadense famosa pela natureza
+MONTREAL;Cidade canadense de língua francesa
+RIODEJANEIRO;Cidade do Cristo Redentor
+SAOPAULO;Maior cidade do Brasil
+SALVADOR;Capital baiana famosa pelo carnaval
+FORTALEZA;Capital do Ceará
+RECIFE;Cidade com muitas pontes
+CURITIBA;Capital do Paraná
+FLORIANOPOLIS;Capital de Santa Catarina
+PORTOALEGRE;Capital do Rio Grande do Sul
+BELOHORIZONTE;Capital de Minas Gerais
+MANAUS;Cidade da floresta amazônica
+GOIANIA;Capital de Goiás
+CUIABA;Capital do Mato Grosso
+BRASILIA;Capital do Brasil
+NATAL;Capital do Rio Grande do Norte
+JOAOPESSOA;Capital da Paraíba
+MACEIO;Capital de Alagoas
+ARACAJU;Capital de Sergipe
+TERESINA;Capital do Piauí
+PALMAS;Capital do Tocantins
+MACAPA;Capital do Amapá
+BOAVISTA;Capital de Roraima
+PORTOVELHO;Capital de Rondônia
+RIOBRANCO;Capital do Acre
+BELEN;Capital do Pará
+SAOLUIS;Capital do Maranhão
+VITORIA;Capital do Espírito Santo
+CAMPOGRANDE;Capital do Mato Grosso do Sul
