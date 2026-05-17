@@ -15,3 +15,9 @@ ACERTO -  Data: 17/05/2026 13:14 | Jogador: Gustavo | Pontos: 3 | Tentativas Usa
 ACERTO -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 4 | Tentativas Usadas: 4 | Palavra: SAOLUIS
 ACERTO -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 5 | Tentativas Usadas: 4 | Palavra: OSLO
 DERROTA -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 5 | Tentativas Usadas: JOGADOR PERDEU | Palavra: BOAVISTA
+ACERTO -  Data: 17/05/2026 13:32 | Jogador: Júlio | Pontos: 1 | Tentativas Usadas: Acertou Em Cheio | Palavra: MANAUS
+ACERTO -  Data: 17/05/2026 13:39 | Jogador: Júlio | Pontos: 1 | Tentativas Usadas: 2 | Palavra: ESTOCOLMO
+ACERTO -  Data: 17/05/2026 13:40 | Jogador: Júlio | Pontos: 2 | Tentativas Usadas: 1 | Palavra: FLORIANOPOLIS
+ACERTO -  Data: 17/05/2026 13:41 | Jogador: Júlio | Pontos: 3 | Tentativas Usadas: 1 | Palavra: CUIABA
+ACERTO -  Data: 17/05/2026 13:41 | Jogador: Júlio | Pontos: 4 | Tentativas Usadas: 1 | Palavra: OSAKA
+DERROTA -  Data: 17/05/2026 13:42 | Jogador: Júlio | Pontos: 4 | Tentativas Usadas: JOGADOR PERDEU | Palavra: PORTOVELHO

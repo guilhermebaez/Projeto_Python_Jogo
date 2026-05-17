@@ -19,7 +19,7 @@ for letra in palavra_secreta:
     palavra_oculta.append("_")
 
 # Tentativas
-tentativas_restantes = 6
+tentativas_restantes = JL.definir_tentativas(palavra_secreta)
 
 # Acertos
 quantidade_acertos = 0
@@ -108,6 +108,9 @@ def nova_rodada():
     #escolhendo uma palavra nova
     palavra_secreta, dica_texto = JL.escolher_palavra()
 
+    #Definindo novas tentativas
+    tentativas_restantes = JL.definir_tentativas(palavra_secreta)
+
     #Reseta a lista de letras usadas
     letras_usadas = []
 
@@ -130,6 +133,9 @@ def nova_rodada():
     letras.config(
         text = f"Letras Usadas: "
     )
+    tentativas.config(
+        text = f"Tentativas: {tentativas_restantes}"
+    )
 
     #Limpa mensagem anterior - Dava erro mostrando sempre "Você acertou"
     status.config(text = "")
@@ -142,7 +148,7 @@ def novo_jogo():
     quantidade_acertos = 0
 
     #Reseta as tentativas
-    tentativas_restantes = 6
+    tentativas_restantes = JL.definir_tentativas(palavra_secreta)
     
     # Atualiza label
     acertos.config(
@@ -202,8 +208,9 @@ def verificar_letra():
         status.config(text = "Você acertou!")
 
         #Salvando histórico - Rodada ganha
-        
-        tentativas_usadas = 6 - tentativas_restantes
+        tentativas_maximas = JL.definir_tentativas(palavra_secreta)
+        tentativas_usadas = tentativas_maximas - tentativas_restantes   
+
         if (tentativas_usadas == 0):
             tentativas_usadas = "Acertou Em Cheio"
         else:

@@ -106,3 +106,15 @@ def salvar_historico(acerto, nome, pontos, tentativas, palavra):
 
     #Fecha o arquivo
     arq.close()
+
+#Definindo dificuldade de acordo com a quantidade de letras da palavra
+def definir_tentativas(palavra):
+    #palavras pequenas
+    if(len(palavra) <= 4):
+        return 5
+    #Palavras média
+    elif (len(palavra) <= 7):
+        return 6
+    #Palavras grandes
+    else:
+        return 8

@@ -5,3 +5,4 @@ Lucas;5
 Vitor;2
 João;6
 Gustavo;5
+Júlio;4
