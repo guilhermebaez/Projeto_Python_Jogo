@@ -3,6 +3,7 @@
 import tkinter as tk
 import jogo_logica as JL
 
+nome_jogador = input("Digite seu nome para iniciar o jogo: ")
 
 #Chamando as funções do módulo de lógica
 palavra_secreta, dica_texto = JL.escolher_palavra()
@@ -102,6 +103,7 @@ def nova_rodada():
     global palavra_oculta
     global letras_usadas
     global tentativas_restantes
+    global quantidade_acertos 
 
     #escolhendo uma palavra nova
     palavra_secreta, dica_texto = JL.escolher_palavra()
@@ -136,13 +138,27 @@ def nova_rodada():
         text = f"Tentativas: {tentativas_restantes}"
     )
 
-
     #Limpa mensagem anterior - Dava erro mostrando sempre "Você acertou"
     status.config(text = "")
 
+#Função para inicar um novo jogo
+def novo_jogo():
+    global quantidade_acertos
+
+    # Zera os pontos
+    quantidade_acertos = 0
+
+    # Atualiza label
+    acertos.config(
+        text = f"Acertos: {quantidade_acertos}"
+    )
+
+    # Inicia nova rodada
+    nova_rodada()
+
 #Função para verificar a letra colocada pelo usuário
 def verificar_letra():
-    print("botão funcionou")
+    print("botão funcionou") #Mensagem de debug
     #Transformando as variáveis de tentativas e de acertos em globais
     global tentativas_restantes
     global quantidade_acertos
@@ -169,11 +185,13 @@ def verificar_letra():
         tentativas_restantes -= 1
 
     #atualizando as labels em tempo real
-    palavra.config(text = f"Palavra: {' '.join(palavra_oculta)}")
+    #Join - Junta elementos da lista usando espaço
+    #Config - altera um widget, ou seja, um elemento do TK que já existe
+    palavra.config(text = f"Palavra: {' '.join(palavra_oculta)}") #Mostra a palavra atualizada
 
-    letras.config(text = f"Letras Usadas: {', '.join(letras_usadas)}")
+    letras.config(text = f"Letras Usadas: {', '.join(letras_usadas)}") #Mostra a letras usadas
 
-    tentativas.config(text = f"Tentativas: {tentativas_restantes}")
+    tentativas.config(text = f"Tentativas: {tentativas_restantes}") #Mostra a quantidade de tentativas restante
 
     # Vitória
     if "_" not in palavra_oculta:
@@ -188,10 +206,85 @@ def verificar_letra():
 
     # Derrota
     if tentativas_restantes <= 0:
+        JL.salvar_pontos(nome_jogador, quantidade_acertos)
+        #Escondendo a janela principal do jogo
+        janela.withdraw()
 
-        print("Derrota")
+        # Janela de derrota
+        tela_derrota = tk.Toplevel() #TK.toplevel é uma função que abre um pequeno pop-up
+        ranking = JL.carregar_rank()
+        #Configurando o pop-up de derrota
+        tela_derrota.title("Derrota")
+        tela_derrota.geometry("500x400")
+        tela_derrota.configure(bg = "darkred")
+
+        # Mensagem da tela de derrota
+        msg = tk.Label(
+            tela_derrota,
+            text = "Você perdeu!",
+            font = ("Courier", 16),
+            bg = "darkred",
+            fg = "white"
+        )
+
+        msg.pack(pady = 20)
+        #Mostrando o ranking 
+        titulo_rank = tk.Label(
+            tela_derrota,
+            text = "MELHORES TENTATIVAS",
+            font = ("Courier", 14),
+            bg = "darkred",
+            fg = "gold"
+        )
+        titulo_rank.pack(pady = 10)
+
+        #Loop para o rank aparecer
+        for i in range(min(5, len(ranking))):
+            nome = ranking[i][0]
+            pontos = ranking[i][1]
+
+            texto = (f"{i + 1}° Lugar: {nome} - {pontos} pontos")
+            jogador_label = tk.Label(
+                tela_derrota,
+                text = texto,
+                font = ("Courier", 12),
+                bg = "darkred",
+                fg = "white"
+            )
+            jogador_label.pack()
+        
+        #Função para mostrar a tela escondida novamente usando o comando deiconify() - mostra a janela escondida por withdraw
+        def reiniciar():
+
+            tela_derrota.destroy()
+
+            janela.deiconify()
+
+            novo_jogo()
+
+        # Botão jogar novamente
+        btn_reiniciar = tk.Button(
+            tela_derrota,
+            text = "Tentar Novamente",
+            #Quando o botão jogar novamente for apertado:
+            #A tela de derrota irá fechar e a função nova rodada irá ser chamada, abrindo uma nova tela de jogo
+            command = reiniciar
+        )
+
+        btn_reiniciar.pack(pady = 10)
+
+        # Botão sair
+        btn_sair = tk.Button(
+            tela_derrota,
+            text = "Sair",
+            #Ao botão ser apertado, a 
+            command = janela.quit
+        )
+
+        btn_sair.pack(pady = 10)
 
 # Label de status do jogo
+# Status é uma label vazia que será configurada de acordo com a situação do jogo
 status = tk.Label(
     janela,
     text = "",

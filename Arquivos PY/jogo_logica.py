@@ -49,3 +49,37 @@ def validar_letra(letra, usadas): #Valida a letra do usuário e compara com a li
         return False
     
     return True
+
+#Função para salvar a pontuação do player
+def salvar_pontos(nome, pontos):
+    arq = open("pontuacoes.txt", "a", encoding="utf-8")
+    arq.write(f"{nome};{pontos}\n")
+    arq.close()
+
+#Função para carregar o ranking dos jogadores
+def carregar_rank():
+    ranking = []
+    arq = open("pontuacoes.txt", "r", encoding="utf-8")
+
+    #Percorrendo o TXT e adicionando ele na lista
+    for linha in arq:
+        dados = linha.strip().split(";")
+
+        # Verifica se a linha possui nome e pontos
+        if len(dados) == 2:
+            nome = dados[0]
+            pontos = dados[1]
+            ranking.append((nome, int(pontos)))
+    arq.close()
+
+    #Ordenando a maior pontuação para menor pontuação
+    for i in range(len(ranking)): #Lê o rank X
+        for j in range(i + 1, len(ranking)): #Lê o rank Y
+            #comparando os pontos
+            if(ranking[j][1] > ranking[i][1]): #Caso o ranking X seja maior que o ranking Y
+                #Fazendo os nomes trocarem de posição
+                troca = ranking[i] #Variável de troca para ordenar os rankings
+                #Invertendo os rankings para ordenar do maior pro menor
+                ranking[i] = ranking[j]
+                ranking[j] = troca
+    return ranking
