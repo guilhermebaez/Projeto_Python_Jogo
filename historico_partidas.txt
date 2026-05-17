@@ -9,3 +9,9 @@ ACERTO -  Data: 17/05/2026 13:06 | Jogador: João | Pontos: 4 | Tentativas Usada
 ACERTO -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 5 | Tentativas Usadas: 3 | Palavra: TOKYO
 ACERTO -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 6 | Tentativas Usadas: 4 | Palavra: BRASIL
 DERROTA -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 6 | Tentativas Usadas: JOGADOR PERDEU | Palavra: LONDRES
+ACERTO -  Data: 17/05/2026 13:13 | Jogador: Gustavo | Pontos: 1 | Tentativas Usadas: Acertou Em Cheio | Palavra: ROMA
+ACERTO -  Data: 17/05/2026 13:14 | Jogador: Gustavo | Pontos: 2 | Tentativas Usadas: Acertou Em Cheio | Palavra: MONTREAL
+ACERTO -  Data: 17/05/2026 13:14 | Jogador: Gustavo | Pontos: 3 | Tentativas Usadas: Acertou Em Cheio | Palavra: FORTALEZA
+ACERTO -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 4 | Tentativas Usadas: 4 | Palavra: SAOLUIS
+ACERTO -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 5 | Tentativas Usadas: 4 | Palavra: OSLO
+DERROTA -  Data: 17/05/2026 13:18 | Jogador: Gustavo | Pontos: 5 | Tentativas Usadas: JOGADOR PERDEU | Palavra: BOAVISTA
