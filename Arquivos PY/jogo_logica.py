@@ -1,6 +1,7 @@
 #Gerando a lógica para abrir arquivos
 #Importando biblioteca random
 import random as rd
+from datetime import datetime
 
 #Função para carregar palavras
 def carregar_palavras():
@@ -83,3 +84,25 @@ def carregar_rank():
                 ranking[i] = ranking[j]
                 ranking[j] = troca
     return ranking
+
+#Função para salvar o histórico completo do jogo:
+#O resultado de todas as partidas devem ser armazenadas em um arquivo, contendo, pelo menos, as seguintes informações: DATA, Nome do jogador, Pontuação, Número de tentativas, Palavra (ou frase) secreta
+def salvar_historico(acerto, nome, pontos, tentativas, palavra):
+    #Pegando a data atual do computador
+    data = datetime.now().strftime("%d/%m/%Y %H:%M")
+
+    #Abre o arquivo no modo append
+    arq = open("historico_partidas.txt", "a", encoding="utf-8")
+
+    #Escreve as informações da partida
+    arq.write(
+        f"{acerto} -  "
+        f"Data: {data} | "
+        f"Jogador: {nome} | "
+        f"Pontos: {pontos} | "
+        f"Tentativas Usadas: {tentativas} | "
+        f"Palavra: {palavra}\n"
+    )
+
+    #Fecha o arquivo
+    arq.close()

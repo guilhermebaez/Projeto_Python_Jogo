@@ -1,0 +1,11 @@
+ACERTO -  Data: 17/05/2026 13:02 | Jogador: Vitor | Pontos: 1 | Tentativas Usadas: 0 | Palavra: LONDRES
+ACERTO -  Data: 17/05/2026 13:04 | Jogador: Vitor | Pontos: 1 | Tentativas Usadas: 0 | Palavra: PARIS
+ACERTO -  Data: 17/05/2026 13:05 | Jogador: Vitor | Pontos: 1 | Tentativas Usadas: Acertou Em Cheio | Palavra: PARIS
+ACERTO -  Data: 17/05/2026 13:05 | Jogador: Vitor | Pontos: 2 | Tentativas Usadas: Acertou Em Cheio | Palavra: LONDRES
+ACERTO -  Data: 17/05/2026 13:06 | Jogador: João | Pontos: 1 | Tentativas Usadas: Acertou Em Cheio | Palavra: BRASIL
+ACERTO -  Data: 17/05/2026 13:06 | Jogador: João | Pontos: 2 | Tentativas Usadas: Acertou Em Cheio | Palavra: PARIS
+ACERTO -  Data: 17/05/2026 13:06 | Jogador: João | Pontos: 3 | Tentativas Usadas: Acertou Em Cheio | Palavra: PARIS
+ACERTO -  Data: 17/05/2026 13:06 | Jogador: João | Pontos: 4 | Tentativas Usadas: Acertou Em Cheio | Palavra: TOKYO
+ACERTO -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 5 | Tentativas Usadas: 3 | Palavra: TOKYO
+ACERTO -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 6 | Tentativas Usadas: 4 | Palavra: BRASIL
+DERROTA -  Data: 17/05/2026 13:07 | Jogador: João | Pontos: 6 | Tentativas Usadas: JOGADOR PERDEU | Palavra: LONDRES

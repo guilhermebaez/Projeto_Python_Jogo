@@ -118,9 +118,6 @@ def nova_rodada():
     for letra in palavra_secreta:
         palavra_oculta.append("_")
 
-    #Reseta as tentativas
-    tentativas_restantes = 6
-
     # Atualiza tela
     palavra.config(
         text = f"Palavra: {' '.join(palavra_oculta)}"
@@ -134,10 +131,6 @@ def nova_rodada():
         text = f"Letras Usadas: "
     )
 
-    tentativas.config(
-        text = f"Tentativas: {tentativas_restantes}"
-    )
-
     #Limpa mensagem anterior - Dava erro mostrando sempre "Você acertou"
     status.config(text = "")
 
@@ -148,9 +141,15 @@ def novo_jogo():
     # Zera os pontos
     quantidade_acertos = 0
 
+    #Reseta as tentativas
+    tentativas_restantes = 6
+    
     # Atualiza label
     acertos.config(
         text = f"Acertos: {quantidade_acertos}"
+    )
+    tentativas.config(
+        text = f"Tentativas: {tentativas_restantes}"
     )
 
     # Inicia nova rodada
@@ -202,11 +201,40 @@ def verificar_letra():
 
         status.config(text = "Você acertou!")
 
+        #Salvando histórico - Rodada ganha
+        
+        tentativas_usadas = 6 - tentativas_restantes
+        if (tentativas_usadas == 0):
+            tentativas_usadas = "Acertou Em Cheio"
+        else:
+            tentativas_usadas = tentativas_usadas
+
+        acerto = "ACERTO"
+        JL.salvar_historico(
+            acerto,
+            nome_jogador,
+            quantidade_acertos,
+            tentativas_usadas,
+            palavra_secreta
+        )
+
         janela.after(2000, nova_rodada)
 
     # Derrota
     if tentativas_restantes <= 0:
+        #Salvando nome e pontos no arquivo TXT
         JL.salvar_pontos(nome_jogador, quantidade_acertos)
+
+        acerto = "DERROTA"
+        tentativas_usadas = "JOGADOR PERDEU"
+        JL.salvar_historico(
+            acerto,
+            nome_jogador,
+            quantidade_acertos,
+            tentativas_usadas,
+            palavra_secreta
+        )
+
         #Escondendo a janela principal do jogo
         janela.withdraw()
 

@@ -1,8 +1,6 @@
-Lucas;3
+
+Duds;2
+Guilherme;3
 Lucas;5
-Guilherme;6
-Vitor;8
-João;2
-Gustavo;0
-Gustavo;2
-Gustavo;4
+Vitor;2
+João;6
