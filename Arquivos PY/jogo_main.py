@@ -1,9 +1,9 @@
 #Usando Tkinter para abrir a interface gráfica do jogo
-#Importando a biblioteca
+#Importando as bibliotecas
 import tkinter as tk
 import jogo_logica as JL
 
-nome_jogador = input("Digite seu nome para iniciar o jogo: ")
+nome_jogador = input("Digite seu nome para iniciar o jogo: ") #Pedindo o nome do player para usar na leaderboard
 
 #Chamando as funções do módulo de lógica
 palavra_secreta, dica_texto = JL.escolher_palavra()
@@ -14,7 +14,7 @@ letras_usadas = []
 #palavra escondida
 palavra_oculta = []
 
-# Cria os _
+# Cria os _ para serem mostrado na tela
 for letra in palavra_secreta:
     palavra_oculta.append("_")
 
@@ -45,11 +45,12 @@ titulo_texto = """
 ***********************************************************
 """
 #Chama-se o LABEL do Tkinter para adcionar um elemento na tela
-#Estrutura do label (onde irá colocar o elemento, opções)
+#Estrutura do label (onde irá colocar o elemento, opções - TEXTO, FONTE, COR, POSIÇÃO....)
 #No caso do texto, o elemento será colocado na variável janela e as opções selecionarão qual será o texto, fonte, tamanho, cor e etc
 titulo = tk.Label(janela, text=titulo_texto, font=("Courier", 14), bg="royalblue3", fg="white", justify="center")
 
 #Torna visível o elemento criado na LABEL
+#Entre os parêntese, pode-se adicionar ajustes da posição
 titulo.pack()
 
 #TEMA
@@ -64,7 +65,7 @@ tema.pack(pady = 0)
 
 
 #Palavra
-palavra = tk.Label(janela, text = f"Palavra: {' '.join(palavra_oculta)}", font = ("Courier", 14), bg = "royalblue3", fg = "white", anchor = "w")
+palavra = tk.Label(janela, text = f"Palavra: {JL.mostrar_palavra(palavra_oculta)}", font = ("Courier", 14), bg = "royalblue3", fg = "white", anchor = "w")
 #Utiliza-se Anchor quando quer posicionar um elemento em alguma coordenada dada por west, east, south e north
 
 palavra.pack(anchor = "w", padx = 20, pady=5)
@@ -76,7 +77,7 @@ dica = tk.Label(janela, text = f"Dica: {dica_texto}", font = ("Courier", 14), bg
 dica.pack(anchor = "w", padx = 20, pady=5)
 
 #Letras usadas
-letras = tk.Label(janela, text = f"Letras Usadas: {', '.join(letras_usadas)}", font = ("Courier", 14), bg = "royalblue3", fg = "white", justify = "center")
+letras = tk.Label(janela, text = f"Letras Usadas: {JL.mostrar_palavra(letras_usadas)}", font = ("Courier", 14), bg = "royalblue3", fg = "white", justify = "center")
 letras.pack(anchor = "w", padx = 20, pady=5)
 
 #Tentativas
@@ -97,7 +98,7 @@ entrada.pack(anchor = "center", padx = 20, pady = 5)
 
 #Função para criar uma nova palavra após vencer a rodada
 def nova_rodada():
-    #transformando variáveis em globais
+    #transformando variáveis em globais para serem acessadas por essa função
     global palavra_secreta
     global dica_texto
     global palavra_oculta
@@ -121,21 +122,15 @@ def nova_rodada():
     for letra in palavra_secreta:
         palavra_oculta.append("_")
 
-    # Atualiza tela
-    palavra.config(
-        text = f"Palavra: {' '.join(palavra_oculta)}"
-    )
+    # Atualiza tela usando CONFIG
+    #Config - altera um widget, ou seja, um elemento do TK que já existe
+    palavra.config(text = f"Palavra: {JL.mostrar_palavra(palavra_oculta)}")
 
-    dica.config(
-        text = f"Dica: {dica_texto}"
-    )
+    dica.config(text = f"Dica: {dica_texto}")
 
-    letras.config(
-        text = f"Letras Usadas: "
-    )
-    tentativas.config(
-        text = f"Tentativas: {tentativas_restantes}"
-    )
+    letras.config(text = f"Letras Usadas: ")
+
+    tentativas.config(text = f"Tentativas: {tentativas_restantes}")
 
     #Limpa mensagem anterior - Dava erro mostrando sempre "Você acertou"
     status.config(text = "")
@@ -143,6 +138,7 @@ def nova_rodada():
 #Função para inicar um novo jogo
 def novo_jogo():
     global quantidade_acertos
+    global tentativas_restantes
 
     # Zera os pontos
     quantidade_acertos = 0
@@ -151,12 +147,8 @@ def novo_jogo():
     tentativas_restantes = JL.definir_tentativas(palavra_secreta)
     
     # Atualiza label
-    acertos.config(
-        text = f"Acertos: {quantidade_acertos}"
-    )
-    tentativas.config(
-        text = f"Tentativas: {tentativas_restantes}"
-    )
+    acertos.config(text = f"Acertos: {quantidade_acertos}")
+    tentativas.config(text = f"Tentativas: {tentativas_restantes}")
 
     # Inicia nova rodada
     nova_rodada()
@@ -176,48 +168,49 @@ def verificar_letra():
 
     #valida a letra
     if not JL.validar_letra(letra, letras_usadas):
-        return
+        return #Verifica a validação e retorna o valor
     
     #adiciona letra usada
     letras_usadas.append(letra)
 
-    #verifica se a letra existe
+    #verifica se a letra existe na palavra secreta
     if letra in palavra_secreta:
+        #Se ela existir, o código irá percorrer a lista e alterar os valores das listas
         for i in range(len(palavra_secreta)):
-            if palavra_secreta[i] == letra:
-                palavra_oculta[i] = letra
+            if palavra_secreta[i] == letra: #Caso a letra for encontrada
+                palavra_oculta[i] = letra #Substitui o "_" pela letra correta
     else:
         tentativas_restantes -= 1
 
     #atualizando as labels em tempo real
-    #Join - Junta elementos da lista usando espaço
-    #Config - altera um widget, ou seja, um elemento do TK que já existe
-    palavra.config(text = f"Palavra: {' '.join(palavra_oculta)}") #Mostra a palavra atualizada
+    palavra.config(text = f"Palavra: {JL.mostrar_palavra(palavra_oculta)}") #Mostra a palavra atualizada
 
-    letras.config(text = f"Letras Usadas: {', '.join(letras_usadas)}") #Mostra a letras usadas
+    letras.config(text = f"Letras Usadas: {JL.mostrar_palavra(letras_usadas)}") #Mostra a letras usadas
 
     tentativas.config(text = f"Tentativas: {tentativas_restantes}") #Mostra a quantidade de tentativas restante
 
     # Vitória
     if "_" not in palavra_oculta:
 
+        #Aumenta 1 na pontuação
         quantidade_acertos += 1
 
+        #Altera os valors na tela
         acertos.config(text = f"Acertos: {quantidade_acertos}")
-
         status.config(text = "Você acertou!")
 
         #Salvando histórico - Rodada ganha
         tentativas_maximas = JL.definir_tentativas(palavra_secreta)
-        tentativas_usadas = tentativas_maximas - tentativas_restantes   
+        tentativas_usadas = tentativas_maximas - tentativas_restantes #Calculando quantas tentativas o player levou para acertar
 
+        #Caso o player tenha acertado em cheio, a váriavel muda
         if (tentativas_usadas == 0):
-            tentativas_usadas = "Acertou Em Cheio"
+            tentativas_usadas = "Acertou Em Cheio" #Acertou em cheio
         else:
-            tentativas_usadas = tentativas_usadas
+            tentativas_usadas = tentativas_usadas #Não acertou em cheio
 
-        acerto = "ACERTO"
-        JL.salvar_historico(
+        acerto = "ACERTO" #Definindo que o player acertou
+        JL.salvar_historico( 
             acerto,
             nome_jogador,
             quantidade_acertos,
@@ -225,15 +218,15 @@ def verificar_letra():
             palavra_secreta
         )
 
-        janela.after(2000, nova_rodada)
+        janela.after(2000, nova_rodada) #Delay de 2000ms para chamar a nova rodada
 
     # Derrota
     if tentativas_restantes <= 0:
         #Salvando nome e pontos no arquivo TXT
         JL.salvar_pontos(nome_jogador, quantidade_acertos)
 
-        acerto = "DERROTA"
-        tentativas_usadas = "JOGADOR PERDEU"
+        acerto = "DERROTA" #Definindo que o player perdeu
+        tentativas_usadas = "JOGADOR PERDEU" #Jogador usou todas as tentativas
         JL.salvar_historico(
             acerto,
             nome_jogador,
@@ -246,15 +239,16 @@ def verificar_letra():
         janela.withdraw()
 
         # Janela de derrota
-        tela_derrota = tk.Toplevel() #TK.toplevel é uma função que abre um pequeno pop-up
+        tela_derrota = tk.Toplevel() #TK.toplevel é uma função que abre um pequeno pop-up na tela
         ranking = JL.carregar_rank()
-        #Configurando o pop-up de derrota
-        tela_derrota.title("Derrota")
-        tela_derrota.geometry("500x400")
-        tela_derrota.configure(bg = "darkred")
 
+        #Configurando o pop-up de derrota
+        tela_derrota.title("Derrota") #Título do POP-UP
+        tela_derrota.geometry("500x400") #Tamanho do POP-UP
+        tela_derrota.configure(bg = "darkred") #Cor de fundo do POP-UP
+    
         # Mensagem da tela de derrota
-        msg = tk.Label(
+        msg_derrota = tk.Label(
             tela_derrota,
             text = "Você perdeu!",
             font = ("Courier", 16),
@@ -262,8 +256,10 @@ def verificar_letra():
             fg = "white"
         )
 
-        msg.pack(pady = 20)
+        msg_derrota.pack(pady = 20)
+
         #Mostrando o ranking 
+        #Escrevendo MELHORES TENTATIVAS no centro do POP-UP
         titulo_rank = tk.Label(
             tela_derrota,
             text = "MELHORES TENTATIVAS",
@@ -274,14 +270,16 @@ def verificar_letra():
         titulo_rank.pack(pady = 10)
 
         #Loop para o rank aparecer
-        for i in range(min(5, len(ranking))):
-            nome = ranking[i][0]
-            pontos = ranking[i][1]
+        for i in range(min(5, len(ranking))): #Pegando os TOP 5 - MIN --> Evita erro caso tenha menos que 5 jogadores
+            nome = ranking[i][0] #Pega o nome
+            pontos = ranking[i][1] #Pega os pontos
 
-            texto = (f"{i + 1}° Lugar: {nome} - {pontos} pontos")
+            #Mostrando o rank na tela
+            texto = (f"{i + 1}° Lugar: {nome} - {pontos} pontos") #Deixa bonito e formatado
+            #Mostra o rank na tela
             jogador_label = tk.Label(
                 tela_derrota,
-                text = texto,
+                text = texto, #Chama o texto formatada
                 font = ("Courier", 12),
                 bg = "darkred",
                 fg = "white"
@@ -330,14 +328,14 @@ status = tk.Label(
 
 status.pack(pady = 10)
 
-#Criando um botão por usuário enviar a letra
+#Criando o botão que envia a letra digitada pelo jogador
 botao = tk.Button(
     janela,
     text = "Enviar",
     font = ("Courier", 12),
     bg = "white",
     fg = "black",
-    command = verificar_letra
+    command = verificar_letra #Ao ser apertado, será chamada a função de verificar letra
 )
 
 botao.pack(pady = 10)
