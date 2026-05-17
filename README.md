@@ -21,6 +21,42 @@
 
 -Tela própria do aplicativo (sem usar terminal) usando Tkinter
 
+--------------------------------
+
+Funções Usadas:
+
+Função - Objetivo
+
+Tk() - janela principal
+
+Label()	- textos
+
+Button() - botões
+
+Entry()	- input
+
+Toplevel() - popup
+
+pack() - posicionamento
+
+config() - atualizar interface
+
+after() - delay
+
+withdraw() - esconder janela
+
+deiconify() - mostrar janela
+
+mainloop() - manter app aberto
+
+get() - ler input
+
+delete() - limpar input
+
+quit() - fechar app
+
+--------------------------------
+
 -A tela deve ser estilizada e agradável visualmente
 
 -TEMA: Países e Cidades
@@ -43,25 +79,21 @@
 	
 	|-Input: (Aqui é onde o player escreve a letra)
 
-<img width="799" height="630" alt="image" src="https://github.com/user-attachments/assets/7c0f7f2b-1a3c-41a9-a946-7aff6e37b9dc" />
+<img width="803" height="628" alt="image" src="https://github.com/user-attachments/assets/4f99bc3d-be55-44ab-a7a6-128f84529a74" />
 	
 -Após o envio da letra, o sistema deve validar o carácter e atualizar o estado do jogo: Verifica se a letra pertence a palavra, atualiza a exibição da palavra, registra a letra como utilizada (não poderá mais ser usada), incrementa o número de tentativas.
 
 -O processo irá se repetir até o jogador acertar a palavra;
 
--Após acertar, um outro HUD irá aparecer contendo: 
+-Após acertar:
 
 |-Mensagem de acerto;
 
-|-Quantos pontos o player ganhou;
-
-|-Quer continuar?; 
-
-(Sim: Reinicia com uma nova palavra)
-
-(Não: Fecha o sistema e gera um arquivo TXT)
+|-Nova Rodada
 
 -Caso o player não acerte a palavra, um HUD de derrota irá aparecer, avisando o jogador que ele perdeu e perguntar se quer jogar novamente ou não.
+
+<img width="499" height="426" alt="image" src="https://github.com/user-attachments/assets/2bf58c14-d6db-48eb-a510-6852b2f72e3e" />
 
 -O jogo terá um sistema de pontos baseado na quantidade de palavras que o player acertou, guardando o high-score de cada um que jogar o jogo, salvando no arquivo TXT de nomes dos jogadores;
 
